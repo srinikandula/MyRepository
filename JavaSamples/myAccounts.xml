@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+	<account>
+		<id>1234</id>
+		<name>John</name>
+		<balance>1000</balance>
+	</account>
+	<account>
+		<id>1235</id>
+		<name>Jane</name>
+		<balance>2000</balance>
+	</account>
+	<account>
+		<id>1236</id>
+		<name>Sam</name>
+		<balance>5000</balance>
+	</account>
+	<account>
+		<id>1237</id>
+		<name>White</name>
+		<balance>10000</balance>
+	</account>
+</accounts>

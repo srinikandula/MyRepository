@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<employee>
+	<name>Srini</name>
+	<name>Arun</name>
+	<id>101</id>
+	<Dept>Sales</Dept>
+	<Dept>Marketing</Dept>
+	<Dept>HR</Dept>
+	<Designation>Manager</Designation>
+	<demographics>
+		<firstName>Srini</firstName>
+		<lastName>Kandula</lastName>
+		
+	</demographics>
+</employee>

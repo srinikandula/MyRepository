@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
+  "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<faces-config>
+	<managed-bean>
+		<managed-bean-name>SimpleLogin</managed-bean-name>
+		<managed-bean-class>roseindia.SimpleLogin</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>jsfBean</managed-bean-name>
+		<managed-bean-class>roseindia.JSFBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{SimpleLogin.CheckValidUser}</from-action>
+			<from-outcome>success</from-outcome>
+			<to-view-id>resultforsuccess.jsp</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{SimpleLogin.CheckValidUser}</from-action>
+			<from-outcome>fail</from-outcome>
+			<to-view-id>resultforfail.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

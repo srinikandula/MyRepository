@@ -1,0 +1,7 @@
+This is Meenakshi. \n
+
+CharacterStremExample is very similar to ByteExample.\n 
+
+The most important difference is that CharacterStremExample\n 
+
+uses FileReader and FileWriter for input and output in\n 

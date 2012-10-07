@@ -1,0 +1,7 @@
+this is cool\n
+
+CopyCharacters is very similar to CopyBytes.\n 
+
+The most important difference is that CopyCharacters\n 
+
+uses FileReader and FileWriter for input and output in\n 
