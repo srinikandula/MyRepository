@@ -6,19 +6,48 @@ import java.io.InputStreamReader;
 
 public class Bank {
 		
+	public static void main(String[] args) {
+		Account a = new Account(); // 1 ,Srini 1000
+		Account a1 = new Account(); // 1 ,Srini 1000
+		
+		Account.setBranchId("1001");
+		
+		a.setId(100);
+		a1.setId(101);
+		
+		System.out.println(a.getId());
+		System.out.println(a1.getId());
+		System.out.println(a.getBranchId());
+		System.out.println(a1.getBranchId());
+		
+	}
 	public  void createAccount(Account[] accounts,int accountCount) throws IOException {
 		Account a = new Account(); // 1 ,Srini 1000
-		String accNum = readUserInput("Enter Account number");
-		a.setId(Integer.parseInt(accNum));
+		Account a1 = new Account(); // 1 ,Srini 1000
 		
+		Account.setBranchId("1001");
+		
+		a.setId(100);
+		a1.setId(101);
+		String  number = "100";
+		Parrot p = new Parrot();
+		Bird b = (Bird)p;		
+		int i = Integer.parseInt(number);
+		Integer object = new Integer(i);
+		System.out.println(a.getId());
+		System.out.println(a1.getId());
+		System.out.println(a.getBranchId());
+		System.out.println(a1.getBranchId());
+		
+		/*
 		String name = readUserInput("Enter name");
-		a.setName(name);
+		a.setName("Srini");
 		
 		String bal = readUserInput("Enter balance");
 		a.setBalance(Double.parseDouble(bal));
 		accounts[accountCount] = a;
 		System.out.println("Account created: "+a);
-		
+		*/
 		/*
 		 * 101 103 102
 		 *  

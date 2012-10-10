@@ -1,0 +1,125 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="mystyles.css">
+	<style>
+		.colorpicker{
+			border: 2px solid black;
+			text-align: center;
+		}
+	</style>
+	<script>
+		var enableDrawing;
+		var pickedColor;
+		function pickcolor(colorname){
+			pickedColor = colorname;
+			updateSelection();
+		}
+		function startdrawing(){
+			enableDrawing = true;
+			updateSelection();
+		}
+		function stopdrawing(){
+			enableDrawing = false;
+			updateSelection();
+		}
+		function draw(){
+			if(enableDrawing == true){
+			 //alert('drawing');
+			}
+		}
+		function fillcolor(elementId){
+		
+			if(pickedColor != null && enableDrawing == true){
+			
+				document.getElementById(elementId).style.backgroundColor=pickedColor;
+				//document.getElementById(elementId).style.color=pickedColor;
+			}
+		}
+		function fillIt(elementId){
+		
+				document.getElementById(elementId).style.backgroundColor=pickedColor;
+				document.getElementById(elementId).style.color=pickedColor;
+		}
+		function fillcolorThis(element){
+			element.style.backgroundColor=pickedColor;
+		}
+		function updateSelection(){
+			document.getElementById("selections").innerHTML =" color:"+pickedColor+"  enableDrawing:"+enableDrawing;
+		}
+		
+	</script>
+</head>
+<body class="mybackground">
+<fieldset >
+	<legend>seletions</legend>
+	<span id="selections"></span>
+</fieldset>
+<table style=";" cellpadding="2">
+	<tr>
+		<td class="colorpicker" style="background-color:red;"><span onclick="javascript:pickcolor('red')" >Red</span></td>
+		<td class="colorpicker" style="background-color:blue;"><span onclick="javascript:pickcolor('blue')">Blue</span></td>
+		
+	</tr>
+	<tr>
+		<td class="colorpicker" style="background-color:yellow;"><span onclick="javascript:pickcolor('yellow')" >Yellow</span></td>
+		<td class="colorpicker" style="background-color:green;"><span onclick="javascript:pickcolor('green')" >Green</span></td>
+	</tr>
+</table>
+<fieldset>
+<legend>Drawing area</legend>
+<!--<div style="width:600px; height:500px;border: 1px solid black;"  onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()" onmousemove="draw()" onmouseout="javascript:stopdrawing()"> -->
+<table>
+	<tr>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()" id="button1" onmouseover="javascript:fillcolor('button1')" onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()" id="button2" onmouseover="javascript:fillcolor('button2')"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()" onmouseover="javascript:fillcolorThis(this)"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+	</tr>
+	<tr>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+	</tr>
+	<tr>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+	</tr>
+	<tr>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+	</tr>
+	<tr>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+		<td><button onmousedown="javascript:startdrawing()" onmouseup="javascript:stopdrawing()"onmouseover="javascript:fillcolorThis(this)" >Fill Me</button></td>
+	</tr>
+	
+</table>
+<button>></button>
+<button><</button>
+</fieldset>
+	
+
+</body>
+</html>

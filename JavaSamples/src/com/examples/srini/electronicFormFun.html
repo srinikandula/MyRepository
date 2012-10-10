@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<style type="text/css">
+#formBox {
+	background-image: url(../mv82.png);
+	width: 1213px;
+	height: 853px;
+}
+
+.box {
+	position: absolute;
+	border: 1px dotted black;
+}
+</style>
+<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$("body").on("mouseup", function(event){
+				$("#formBox").off("mousemove");
+				$("#formBox").off("mousedown");
+				if (event.stopPropagation) {
+					event.stopPropagation();
+				}				
+			});
+			
+			$("#formBox").on("mousedown", function(event){
+				$("#formBox").data("boxstart", event);
+				
+				$("#formBox").on("mousemove", function(event){
+					var boxstart = $("#formBox").data("boxstart");
+					if (!boxstart) {
+						alert('wtf!?');
+					} else {
+						//alert(boxstart.pageX + ',' + boxstart.pageY + ' - ' + event.pageX + ',' + event.pageY);
+						var boxwidth =0;
+						var boxheight = 0;
+						var boxleft = 0;
+						var boxtop = 0;
+						/* if(boxstart.pageX > event.pageX){
+							boxwidth = boxstart.pageX - event.pageX ;
+							boxleft = event.pageX;
+						}
+						else{  */
+							boxwidth = event.pageX - boxstart.pageX;
+						/* }
+						if(boxstart.pageY > event.pageY){
+							boxheight = boxstart.pageY - event.pageY;
+							boxtop = event.pageY;
+						}
+						else{ */
+							boxheight = event.pageY - boxstart.pageY;
+						//}
+						var box = $(".box");
+						if(box.length== 0){
+							box = document.createElement("div");
+							box.id="box";
+							$(box).addClass("box");
+						}
+						$(box).css({
+							"left" : boxleft, 
+							"top" : boxtop,
+							"width" : boxwidth,
+							"height" : boxheight
+						});
+						$("body").append(box);
+					}
+				});
+				
+				
+				if (event.stopPropagation) {
+					event.stopPropagation();
+				}
+			});
+		});
+		
+    </script>
+</head>
+<body>
+	<div id="formBox"></div>
+</body>
+</html>
