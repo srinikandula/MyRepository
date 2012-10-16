@@ -1,36 +1,45 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 
 <html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title></title>
-    <style type="text/css">
-		#formBox {
-			background-image:url('images/Modification_software.jpg');
-			width: 1213px;
-			height: 1234px;
-		}
-		.box {
-			position: absolute;
-			border: 1px dotted black;
-			
-		}
-		
-    </style>
-	<script type="text/javascript" src="loanModScripts.js"> </script>
-    <script type="text/javascript" src="jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="jquery-ui-1.8.23.custom.min.js"></script>
-    
-	<script type="text/javascript">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title></title>
+<style type="text/css">
+div#formBox {
+	background-image: url('images/Modification_software.jpg');
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	height:2000px;
+}
+
+.box {
+	position: absolute;
+	border: 1px dotted black;
+}
+#properties { 
+	width: 100px; 
+	height: 70px; 
+	top:10px;
+	right:10px;
+	background-color: silver; 
+	border-radius: 15px;
+	position:absolute;
+}
+</style>
+<script type="text/javascript" src="loanModScripts.js"> </script>
+<script type="text/javascript" src="jquery-1.8.2.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.23.custom.min.js"></script>
+<script type="text/javascript">
 		$(document).ready(function(){
+			$("#properties").draggable();			
+			
 			$("body").on("mouseup", function(event){
 				$("#formBox").off("mousemove");
 				$("#formBox").off("mousedown");
-				if (event.stopPropagation) {
-					event.stopPropagation();
-				}
 				showPropertiesDialog();
 			});
+			
+		
 			$("#formBox").on("mousedown", function(event){
 				$("#formBox").data("boxstart", event);
 				
@@ -43,46 +52,57 @@
 						
 						var boxwidth = event.pageX - boxstart.pageX;
 						var boxheight = event.pageY - boxstart.pageY;
-						var box = $(".box");
+						var leftX = boxstart.pageX;
+						var topY = boxstart.pageY;
+						if(boxstart.pageX > event.pageX){
+							boxwidth = boxstart.pageX- event.pageX;
+							leftX = event.pageX;
+						}
+						if(boxstart.pageY > event.pageY){
+							boxheight = boxstart.pageY - event.pageY;
+							topY = event.pageY;
+						}
+						
+						
+						var box = $("#box");
+						
 						if(box.length== 0){
 							box = document.createElement("div");
 							box.id="box";
 							$(box).addClass("box");
 						}
 						$(box).css({
-							"left" : boxstart.pageX, 
-							"top" : boxstart.pageY,
+							"left" : leftX, 
+							"top" : topY,
 							"width" : boxwidth,
 							"height" : boxheight
 						});
 						$("body").append(box);
+						
+						$("#box").draggable();
+						$("#box").html("<input type='text'/>");
 					}
-				});
-				
+				});				
 				
 				if (event.stopPropagation) {
 					event.stopPropagation();
 				}
 			});
 		});
-		
+		function showPropertiesDialog(){
+			
+			$("#properties").show();
+			$("#properties").draggable();
+			
+		}
     </script>
-  </head>
-  <body>
-  	<center>
-	<div id="formBox">
-	</div>
+</head>
+<body>
+	<center>
+		<div id="formBox"></div>
 	</center>
-	
-<div id="draggable" class="ui-widget-content">
-	<p>Input Type:	<select id="inputType">
-			<option value="text">Text</option>
-			<option value="radio">Radio</option>
-			<option value="checkbox">Checkbox</option>
-		</select></p>
-</div>
-		
-	
-	</div>
-  </body>
+
+	<div id="properties" style="display:none;">Drag me</div>
+
+</body>
 </html>
